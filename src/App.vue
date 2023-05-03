@@ -1,42 +1,36 @@
-<script setup>
-</script>
-
 <template>
-  <header>
+    <div class="w-full">
+        <pv-toolbar>
+            <template #start>
+                <img src="./assets/logo.png" alt="" width="100" height="30">&nbsp
+                <pv-button label="Servicios" severity="success" text />
+                <pv-button label="Nosotros" severity="success" text />
+                <pv-button label="Soporte" severity="success" text />
+            </template>
 
-    <div class="wrapper">
+            <template #end>
+
+                <pv-button label="Iniciar Sesion" severity="success" outlined/>&nbsp &nbsp
+                <pv-button label="Registrar" severity="success" severities />
+            </template>
+        </pv-toolbar>
     </div>
-  </header>
-
-  <main>
-  </main>
+    <div>
+        <img src="./assets/fondo.jpg" alt="" width="1520" height="650">
+    </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script>
+import Inicio from '@/components/inicio.component.vue'
+import inicioComponent from "@/components/inicio.component.vue";
+
+export default{
+    name:'App',
+    computed: {
+        inicioComponent() {
+            return inicioComponent
+        }
+    },
+    components:{Inicio}
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+</script>
