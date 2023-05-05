@@ -16,7 +16,7 @@
 
             <!-- Password input -->
             <div class="inputbox">
-                <div class="text">Password</div>
+                <div for="password" class="text">Password</div>
                 <pv-password v-model="value" :feedback="false" class="p-inputtext-sm" inputId="password" />
             </div>
 
