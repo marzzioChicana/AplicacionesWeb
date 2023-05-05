@@ -23,13 +23,13 @@
                 <div class="flex  col">
                     <pv-radiobutton v-model="plan" inputId="plan1" name="plan" value="Normal" />
                 </div>
-                <div class="col-1 align-items-center">
+                <div class=" align-items-center">
                     <label class="text" for="plan1">Usuario Normal</label>
                 </div>
                 <div class="flex col">
                     <pv-radiobutton v-model="plan" inputId="plan2" name="plan" value="Gestor" />
                 </div>
-                <div class="col-1 align-items-center">
+                <div class=" align-items-center">
                     <label class="text" for="plan2">Gestor de Eventos</label>
                 </div>
             </div>
@@ -90,6 +90,6 @@ export default {
     align-items: center;
 }
 .flex{
-    flex: 1 1 0%;
+    flex: 1 1 0;
 }
 </style>
