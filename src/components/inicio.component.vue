@@ -1,53 +1,31 @@
 <template>
-    <section class="vh-100">
-        <div class="container py-5 h-100">
-            <div class="row d-flex align-items-center justify-content-center h-100">
-                <div class="col-md-8 col-lg-7 col-xl-6">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                         class="img-fluid" alt="Phone image">
-                </div>
-                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                    <form>
-                        <!-- Email input -->
-                        <div class="form-outline mb-4">
-                            <input type="email" id="form1Example13" class="form-control form-control-lg" />
-                            <label class="form-label" for="form1Example13">Email address</label>
-                        </div>
+    <div class="grid">
+        <div class="col-6 align-items-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" alt="Phone image" width="700" height="700">
+        </div>
 
-                        <!-- Password input -->
-                        <div class="form-outline mb-4">
-                            <input type="password" id="form1Example23" class="form-control form-control-lg" />
-                            <label class="form-label" for="form1Example23">Password</label>
-                        </div>
+        <div class="col-6">
+            <div class="title">
+                Iniciar Sesion
+            </div>
+            <!-- Email input -->
+            <div class="inputbox">
+                <div class="text">Correo electronico</div>
+                <pv-inputtext v-model="value" type="email" class="p-inputtext-sm" />
+            </div>
 
-                        <div class="d-flex justify-content-around align-items-center mb-4">
-                            <!-- Checkbox -->
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                                <label class="form-check-label" for="form1Example3"> Remember me </label>
-                            </div>
-                            <a href="#!">Forgot password?</a>
-                        </div>
+            <!-- Password input -->
+            <div class="inputbox">
+                <div for="password" class="text">Password</div>
+                <pv-password v-model="value" :feedback="false" class="p-inputtext-sm" inputId="password" />
+            </div>
 
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-
-                        <div class="divider d-flex align-items-center my-4">
-                            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                        </div>
-
-                        <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
-                           role="button">
-                            <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
-                        </a>
-                        <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
-                           role="button">
-                            <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
-                    </form>
-                </div>
+            <!-- Submit button -->
+            <div class="inputbox">
+                <pv-button label="Sign in" severity="success" outlined/>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -56,6 +34,37 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+}
+.inputbox{
+    margin-top: 32px;
+}
+.text{
+    margin-bottom: 12px;
+    font-family: "Century Gothic";
+    font-size: 24px;
+    color:#79B791;
+}
+.title{
+    margin-top: 32px;
+    margin-bottom: 32px;
+    font-family: "Century Gothic";
+    font-size: 32px;
+    color:#79B791;
+}
+.col-6{
+    flex: 0 0 auto;
+//padding: $gutter;
+    width: 50%;
+    padding: 4rem;
+}
+.align-items-center{
+    align-items: center;
+}
 </style>
