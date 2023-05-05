@@ -18,11 +18,15 @@
     <div>
         <img src="./assets/fondo.jpg" alt="" width="1520" height="650">
     </div>
+    <div>
+        <registro-component></registro-component>
+    </div>
 </template>
 
 <script>
 import Inicio from '@/components/inicio.component.vue'
 import inicioComponent from "@/components/inicio.component.vue";
+import RegistroComponent from "@/components/registro.component.vue";
 
 export default{
     name:'App',
@@ -31,6 +35,6 @@ export default{
             return inicioComponent
         }
     },
-    components:{Inicio}
+    components:{Inicio,RegistroComponent}
 }
 </script>
