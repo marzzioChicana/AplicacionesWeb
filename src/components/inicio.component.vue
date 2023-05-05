@@ -67,4 +67,7 @@ export default {
 .align-items-center{
     align-items: center;
 }
+.flex{
+    flex: 1 1 0%;
+}
 </style>
