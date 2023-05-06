@@ -5,6 +5,8 @@ import {createRouter, createWebHashHistory} from 'vue-router';
 import Inicio from "../src/components/inicio.component.vue";
 import ToolbarC from "../src/components/toolbar.component.vue";
 import Registro from "../src/components/registro.component.vue"
+import PgEventosComponent from "@/components/pg-eventos.component.vue";
+import SocialEventoComponent from "@/components/social-evento.component.vue";
 
 import 'primevue/resources/themes/lara-dark-teal/theme.css';
 import '/node_modules/primeflex/primeflex.css';
@@ -14,11 +16,14 @@ import Button from "primevue/button";
 import InputText from "primevue/inputtext";
 import Password from "primevue/password";
 import RadioButton from "primevue/radiobutton";
+import Card from 'primevue/card';
 
 const routes = [
     {path:'/', component: ToolbarC},
     {path:'/login', component: Inicio},
-    {path: '/register', component: Registro}
+    {path: '/register', component: Registro},
+    {path: '/pg-eventos', component: PgEventosComponent},
+    {path: '/social-evento', component: SocialEventoComponent}
 ]
 
 const router= createRouter({
@@ -36,4 +41,5 @@ app.use(PrimeVue, {ripple:true})
     .component('pv-inputtext', InputText)
     .component('pv-password', Password)
     .component('pv-radiobutton', RadioButton)
+    .component('pv-card', Card)
     .mount('#app')

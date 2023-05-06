@@ -34,7 +34,9 @@
                 </div>
             </div>
             <div class="inputbox">
+                <router-link to="/pg-eventos">
                 <pv-button class="text" label="Registrarse" severity="success" outlined/>
+                </router-link>
             </div>
         </div>
     </div>
