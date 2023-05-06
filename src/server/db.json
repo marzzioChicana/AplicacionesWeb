@@ -1,0 +1,39 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "The event 1",
+      "description": "The best event have exist forever",
+      "price": 29.36,
+      "image": "https://www.bbva.com/wp-content/uploads/2020/05/festival2.jpg"
+    },
+    {
+      "id": 2,
+      "name": "The event 2",
+      "description": "The best event have exist forever",
+      "price": 30.78,
+      "image": "https://www.consumer.es/app/uploads/2018/03/cumpleanos-barato.jpg"
+    },
+    {
+      "id": 3,
+      "name": "The event 3",
+      "description": "The best event have exist forever",
+      "price": 19.63,
+      "image": "https://www.trecebits.com/wp-content/uploads/2019/11/boda.jpg"
+    },
+    {
+      "id": 4,
+      "name": "The event 4",
+      "description": "The best event have exist forever",
+      "price": 47.89,
+      "image": "https://wp.es.aleteia.org/wp-content/uploads/sites/7/2019/01/web3-social-events-food-advice-health-weight-problems-shutterstock_438050224-rawpixel.com-ai.jpg"
+    },
+    {
+      "id": 5,
+      "name": "The event 5",
+      "description": "The best event have exist forever",
+      "price": 234,
+      "image": "https://www.esneca.com/wp-content/uploads/eventos-sociales.jpg"
+    }
+  ]
+}
