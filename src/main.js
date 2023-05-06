@@ -1,45 +1,69 @@
 import { createApp } from 'vue'
+import { createPinia} from 'pinia';
+
 import App from './App.vue'
-import PrimeVue from 'primevue/config';
-import {createRouter, createWebHashHistory} from 'vue-router';
-import Inicio from "../src/components/inicio.component.vue";
-import ToolbarC from "../src/components/toolbar.component.vue";
-import Registro from "../src/components/registro.component.vue"
-import PgEventosComponent from "@/components/pg-eventos.component.vue";
-import SocialEventoComponent from "@/components/social-evento.component.vue";
+import router from './router'
+import i18n from "@/i18n";
 
-import 'primevue/resources/themes/lara-dark-teal/theme.css';
-import '/node_modules/primeflex/primeflex.css';
+import ToastService from "primevue/toastservice";
+import PrimeVue from "primevue/config";
 
+import "primevue/resources/themes/md-light-indigo/theme.css";
+import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+
+
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
 import Toolbar from "primevue/toolbar";
-import Button from "primevue/button";
 import InputText from "primevue/inputtext";
-import Password from "primevue/password";
+import Textarea from "primevue/textarea";
+import Button from "primevue/button";
+import Row from "primevue/row";
+import Sidebar from "primevue/sidebar";
+import Menu from "primevue/menu";
+import Dialog from "primevue/dialog";
+import Toast from "primevue/toast";
+import Dropdown from "primevue/dropdown";
+import Tag from "primevue/tag";
+import Card from "primevue/card";
+import Menubar from "primevue/menubar";
+import Calendar from "primevue/calendar";
+import InputMask from "primevue/inputmask";
 import RadioButton from "primevue/radiobutton";
-import Card from 'primevue/card';
-
-const routes = [
-    {path:'/', component: ToolbarC},
-    {path:'/login', component: Inicio},
-    {path: '/register', component: Registro},
-    {path: '/pg-eventos', component: PgEventosComponent},
-    {path: '/social-evento', component: SocialEventoComponent}
-]
-
-const router= createRouter({
-    history: createWebHashHistory(),
-    routes
-})
+import Password from "primevue/password";
+import SelectButton from "primevue/selectbutton";
 
 const app = createApp(App)
 
+app.use(createPinia())
 app.use(router)
 
-app.use(PrimeVue, {ripple:true})
-    .component('pv-toolbar', Toolbar)
-    .component('pv-button', Button)
-    .component('pv-inputtext', InputText)
-    .component('pv-password', Password)
-    .component('pv-radiobutton', RadioButton)
-    .component('pv-card', Card)
-    .mount('#app')
+// Toast Service
+app.use(ToastService);
+
+// PrimeVue Configuration
+app.use(PrimeVue, { ripple: true });
+app.use(i18n);
+app.component("pv-data-table", DataTable);
+app.component("pv-column", Column);
+app.component("pv-toolbar", Toolbar);
+app.component("pv-input-text", InputText);
+app.component("pv-textarea", Textarea);
+app.component("pv-button", Button);
+app.component("pv-row", Row);
+app.component("pv-sidebar", Sidebar);
+app.component("pv-menu", Menu);
+app.component("pv-dialog", Dialog);
+app.component("pv-toast", Toast);
+app.component("pv-dropdown", Dropdown);
+app.component("pv-tag", Tag);
+app.component("pv-card", Card);
+app.component("pv-menubar", Menubar);
+app.component("pv-calendar", Calendar);
+app.component("pv-input-mask", InputMask);
+app.component("pv-radio-button", RadioButton);
+app.component("pv-password", Password);
+app.component("pv-select-button", SelectButton);
+app.mount('#app')
