@@ -94,4 +94,5 @@ export default {
 .flex{
     flex: 1 1 0%;
 }
+
 </style>

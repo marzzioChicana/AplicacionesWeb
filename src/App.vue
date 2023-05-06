@@ -7,9 +7,9 @@ export default {
         return{
             drawer: false,
             items:[
-                {label: "Events", to: "/events"},
-                {label: "Profile", to: "/profile"},
-                {label: "About Us", to: "/about"}
+              {label: "Events", to: "/events",  style: { fontFamily: "Century Gothic", fontSize: "25px" }},
+              {label: "Profile", to: "/profile", style: { fontFamily: "Century Gothic", fontSize: "25px" }},
+              {label: "About Us", to: "/about", style: { fontFamily: "Century Gothic", fontSize: "25px" }}
             ]
         }
     }
@@ -20,7 +20,7 @@ export default {
 <template>
     <pv-toast />
     <header>
-        <pv-toolbar class="bg-primary">
+        <pv-toolbar class="bg-black-alpha-90">
             <template #start>
                 <div class="flex-column">
                     <router-link
@@ -38,7 +38,7 @@ export default {
 
                     </router-link>
                 </div>
-                <div class="flex-column">
+                <div class="flex-column hover:bg-pink-900">
                     <router-link
                         v-for="item in items"
                         :to="item.to"
@@ -47,9 +47,10 @@ export default {
                         :key="item.label"
                     >
                         <pv-button
-                            class="p-button-text text-white"
+                            class="p-button-text text-green-500"
                             :href="href"
                             @click="navigate"
+                            :style="item.style"
                         >{{ item.label }}</pv-button>
                     </router-link>
                 </div>
