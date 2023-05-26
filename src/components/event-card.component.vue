@@ -21,6 +21,11 @@
               this.event = event;
               this.deleteEventDialog = true;
           },
+          getEventUrl(event){
+              let evUrl="/event/";
+              evUrl=evUrl+this.event.id.toString();
+              return evUrl;
+          },
       }
   }
 </script>
@@ -52,6 +57,12 @@
                     class="p-button-text p-button-rounded"
                     @click="confirmDeleteEvent(slotProps.data)"
             />
+            <router-link :to="getEventUrl(event)">
+                <pv-button
+                    icon="pi pi-eye"
+                    class="p-button-text p-button-rounded"
+                />
+            </router-link>
         </template>
     </pv-card>
 </template>
