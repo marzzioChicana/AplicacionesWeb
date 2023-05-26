@@ -6,6 +6,8 @@ import EventCardShowCreatedEvents from "@/events/pages/event-card-showCreatedEve
 import EventCardProfile from "@/events/pages/event-card-profile.component.vue";
 import EventHome from "@/events/pages/event-home.component.vue";
 
+import EventCardEventPageComponent from "@/events/pages/event-card-EventPage.component.vue";
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes:[
@@ -48,6 +50,11 @@ const router = createRouter({
             path: '/home',
             name: 'Home',
             component: EventHome
+        },
+        {
+            path: '/event/:id',
+            name: 'Event',
+            component: EventCardEventPageComponent
         }
     ]
 })
