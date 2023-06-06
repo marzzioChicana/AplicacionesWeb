@@ -1,5 +1,5 @@
 <script>
-  export default{
+ export default{
       name: "event-card",
       props:{
         event:null
@@ -17,16 +17,15 @@
               console.log(this.event);
               this.eventDialog = true;
           },
-          confirmDeleteEvent(event){
-              this.event = event;
-              this.deleteEventDialog = true;
+          confirmDeleteEvent(){
+              this.$emit('delete', this.event);
           },
       }
   }
 </script>
 
 <template>
-    <pv-card class="card m-2">
+    <pv-card class="card">
         <template #header>
             <img :alt="event.name" :src="event.image">
         </template>
@@ -50,8 +49,14 @@
             <pv-button
                     icon="pi pi-trash"
                     class="p-button-text p-button-rounded"
-                    @click="confirmDeleteEvent(slotProps.data)"
+                    @click="confirmDeleteEvent()"
             />
+            <router-link :to="'/events/' + event.id">
+              <pv-button
+                    icon="pi pi-eye"
+                    class="p-button-text p-button-rounded"
+              />
+            </router-link>
         </template>
     </pv-card>
 </template>
@@ -62,7 +67,7 @@
     flex-direction: row;
     align-items: center;
     margin-top: 20px;
-    width:1000px;
+    width:100%;
 }
 
 .card img {

@@ -1,12 +1,17 @@
-<script setup>
+<script>
+import ToolbarComponent from "@/components/toolbar-eventManager.vue";
+
+export default {
+    components: {ToolbarComponent}
+}
+
 </script>
 
 <template>
-    <body>
-        <div class="container">
-            <img class="image" src="https://www.bbva.com/wp-content/uploads/2020/05/festival2.jpg" alt="">
-        </div>
-    </body>
+  <ToolbarComponent />
+  <div class="container">
+    <img class="image" src="https://www.bbva.com/wp-content/uploads/2020/05/festival2.jpg" alt="">
+  </div>
 </template>
 
 <style>

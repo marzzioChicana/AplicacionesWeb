@@ -5,15 +5,15 @@ export class MethodsApiService{
         return http.get('methods');
     }
     getById(id){
-        return http.get(`/methods/${id}`);
+        return http.get(`methods/${id}`);
     }
     create(data){
-        return http.post('/methods', data);
+        return http.post('methods', data);
     }
     update(id, data){
-        return http.post(`/methods/${id}`, data);
+        return http.post(`methods/${id}`, data);
     }
     delete(id){
-        return http.delete(`/methods/${id}`);
+        return http.delete(`methods/${id}`);
     }
 }

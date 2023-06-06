@@ -25,13 +25,8 @@ const router = createRouter({
             component: EventFormAddEvent,
         },
         {
-            path: '/about',
-            name: 'About',
-            component: () => import('../views/LandingPageView.vue'),
-        },
-        {
-            path: '/event-created',
-            name: 'Event created',
+            path: '/events/:id',
+            name: 'Event resume',
             component: EventCardEventResume,
         },
         {
@@ -48,7 +43,7 @@ const router = createRouter({
             path: '/home',
             name: 'Home',
             component: EventHome
-        }
+        },
     ]
 })
 

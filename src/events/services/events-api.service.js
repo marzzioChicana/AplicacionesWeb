@@ -5,18 +5,18 @@ export class EventsApiService{
         return http.get('events');
     }
     getById(id){
-        return http.get(`/events/${id}`);
+        return http.get('events/'+id);
     }
     create(data){
-        return http.post('/events', data);
+        return http.post('events', data);
     }
     update(id, data){
-        return http.post(`/events/${id}`, data);
+        return http.post(`events/${id}`, data);
     }
     delete(id){
-        return http.delete(`/tutorials/${id}`);
+        return http.delete(`events/${id}`);
     }
     findByTitle(title){
-        return http.get(`tutorials?title=${title}`);
+        return http.get(`events?title=${title}`);
     }
 }

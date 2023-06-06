@@ -35,5 +35,59 @@
       "price": 234,
       "image": "https://www.esneca.com/wp-content/uploads/eventos-sociales.jpg"
     }
+  ],
+  "methods": [
+    {
+      "id": 1,
+      "name": "Paypal",
+      "description": "Pay with paypal"
+    },
+    {
+      "id": 2,
+      "name": "Credit card",
+      "description": "Pay with credit card"
+    },
+    {
+      "id": 3,
+      "cardNumber": "12345678912457",
+      "dateVen": "12/05/2000",
+      "cvv": "547"
+    },
+    {
+      "id": 4,
+      "cardNumber": "12345678912457",
+      "dateVen": "12/05/2000",
+      "cvv": "547"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Juan",
+      "lastName": "Perez",
+      "email": "juan@example.com",
+      "type": "client"
+    },
+    {
+      "id": 2,
+      "name": "Pedro",
+      "lastName": "Perez",
+      "email": "pedro@example.com",
+      "type": "client"
+    },
+    {
+      "id": 3,
+      "name": "Maria",
+      "lastName": "Perez",
+      "email": "maria@example.com",
+      "type": "eventManager"
+    },
+    {
+      "id": 4,
+      "name": "Jose",
+      "lastName": "Perez",
+      "email": "jose@example.com",
+      "type": "eventManager"
+    }
   ]
 }

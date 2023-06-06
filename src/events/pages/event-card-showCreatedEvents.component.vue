@@ -3,10 +3,10 @@
   import {FilterMatchMode} from "primevue/api";
   import EventCard from "../../components/event-card.component.vue";
   import EventFormAddEvent from "@/events/pages/event-form-addEvent.component.vue";
-
+  import ToolbarEventManager from "@/components/toolbar-eventManager.vue";
   export default {
       name: "event-list",
-      components:{EventCard, EventFormAddEvent},
+      components:{EventCard, EventFormAddEvent, ToolbarEventManager},
       data(){
           return {
               events:[],
@@ -14,6 +14,8 @@
               submitted: false,
               eventsService: null,
               selectedEvent: null,
+              confirmDialog: false,
+              eventToDelete:null,
               drawer: false,
               item:{
                   label:"Add event",
@@ -86,25 +88,35 @@
               }
           },
           deleteEvent(){
-              this.eventsService.delete(this.event.id).then((response) => {
-                  this.events = this.events.filter(
-                      (t) => t.id !== this.event.id
-                  );
-                  this.deleteEventDialog = false;
-                  this.event = {};
-                  this.$toast.add({
-                     severity: "success",
-                     summary: "Successful",
-                     detail: "Event Deleted",
-                     life: 3000,
-                  });
-                  console.log(response);
-              })
+            try {
+              console.log('Evento a eliminar:', this.eventToDelete);
+              console.log('Evento su id a eliminar:', this.eventToDelete.id);
+              this.eventsService.delete(this.eventToDelete.id).then(() => {
+                this.events = this.events.filter(
+                    (event) => event.id !== this.eventToDelete.id
+                );
+
+                this.eventToDelete= null;
+                this.$toast.add({
+                  severity: "success",
+                  summary: "Successful",
+                  detail: "Event Deleted",
+                  life: 3000,
+                });
+                this.confirmDialog = false;
+              });
+            } catch (error) {
+              console.error('Error al eliminar el evento:', error);
+            }
           },
           initFilters(){
             this.filters={
              global: {value: null, matchMode: FilterMatchMode.CONTAINS},
             };
+          },
+          confirmDeleteEvent(event) {
+            this.eventToDelete = event;
+            this.confirmDialog = true;
           },
       },
   };
@@ -112,18 +124,17 @@
 </script>
 
 <template>
+        <toolbar-event-manager />
         <div class="p-grid event-list">
-            <div>
-                <pv-input-text placeholder="Search" type="text"/>
-                <pv-button><i class="pi pi-search" ></i></pv-button>
-            </div>
+            <h1 class="recommendations-title">Recomendaciones</h1>
             <div v-for="event in events" :key="event.id">
-                <event-card  class="event-card" :event="event"></event-card>
+                <event-card  class="event-card" :event="event" @delete="confirmDeleteEvent(event)"></event-card>
                 <pv-dialog
-                    v-model:visible="this.item.deleteEventDialog"
+                    v-model:visible="this.confirmDialog"
                     :style="{width:'450px'}"
                     header="Confirm"
                     :modal="true"
+                    :draggable="false"
                 >
                     <div class="confirmation-content">
                         <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
@@ -136,7 +147,7 @@
                             :label="'No'.toUpperCase()"
                             icon="pi pi-times"
                             class="p-button-text"
-                            @click="this.item.deleteEventDialog"
+                            @click="this.confirmDialog = false"
                         />
                         <pv-button
                             :label="'Yes'.toUpperCase()"
@@ -166,20 +177,42 @@
 
 <style scoped>
 .event-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+  background-color: #242423;
 }
 
 .event-card {
-    flex-basis: 300px;
-    flex-grow: 1;
-    margin-top: 10px;
+  width: 100%;
+  margin-top: 20px;
+  border: 3px solid white;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #242423;
+}
+
+.event-card h4 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.event-card p {
+  font-size: 16px;
+  margin: 0;
 }
 
 .add-event-btn {
-    margin-top: 20px;
-    align-self: flex-end;
+  margin-top: 20px;
+  align-self: flex-end;
+}
+
+.recommendations-title {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #79B791;
+  text-align: left;
+;
 }
 </style>
