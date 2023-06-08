@@ -128,49 +128,7 @@
         <div class="p-grid event-list">
             <h1 class="recommendations-title">Recomendaciones</h1>
             <div v-for="event in events" :key="event.id">
-                <event-card  class="event-card" :event="event" @delete="confirmDeleteEvent(event)"></event-card>
-                <pv-dialog
-                    v-model:visible="this.confirmDialog"
-                    :style="{width:'450px'}"
-                    header="Confirm"
-                    :modal="true"
-                    :draggable="false"
-                >
-                    <div class="confirmation-content">
-                        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
-                        <span v-if="event">
-                            Are you sure you want to delete <b>{{ event.name }}</b>?
-                        </span>
-                    </div>
-                    <template #footer>
-                        <pv-button
-                            :label="'No'.toUpperCase()"
-                            icon="pi pi-times"
-                            class="p-button-text"
-                            @click="this.confirmDialog = false"
-                        />
-                        <pv-button
-                            :label="'Yes'.toUpperCase()"
-                            icon="pi pi-check"
-                            class="p-button-text"
-                            @click="deleteEvent"
-                        />
-                    </template>
-                </pv-dialog>
-            </div>
-            <div>
-                <router-link
-                    :to="item.to"
-                    custom
-                    v-slot="{ navigate, href }"
-                    :key="item.label"
-                >
-                    <pv-button
-                        class="p-button-text text-black add-event-btn"
-                        :href="href"
-                        @click="navigate"
-                    >{{ item.label }}</pv-button>
-                </router-link>
+                <event-card  class="event-card" :event="event" ></event-card>
             </div>
         </div>
 </template>
