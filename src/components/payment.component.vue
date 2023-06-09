@@ -1,10 +1,9 @@
 <template>
-    <div style="position: relative">
+    <div style="position: relative; margin-top:-10px;">
         <div style="position: static; border-bottom: 2px solid #79b791;">
             <UserToolbar></UserToolbar>
         </div>
     </div>
-
 
     <pv-card class="color-box" style="margin-top: -40px;">
         <template #content>
@@ -105,9 +104,9 @@
 </template>
 
 <script>
-
-import UserToolbar from "@/components/user-toolbar.component.vue";
 import {PaymentsApiService} from "@/services/payments-api.service";
+import { useRoute } from "vue-router";
+import UserToolbar from "@/components/user-toolbar.component.vue";
 
 export default {
     name: "payment.component",
@@ -124,6 +123,9 @@ export default {
         this.paymentsService = new PaymentsApiService();
         this.payment = {};
         this.submitted = false;
+        let route = useRoute();
+        this.payment.payment_id = parseInt(route.params.id.toString());
+        this.payment.user_id = 2;
     },
 
     methods: {
@@ -142,7 +144,9 @@ export default {
                 country: displayablePayment.country,
                 expiry_date: displayablePayment.expiry_date,
                 security_code: displayablePayment.security_code,
-                postal_code: displayablePayment.postal_code
+                postal_code: displayablePayment.postal_code,
+                user_id: displayablePayment.user_id,
+                payment_id: displayablePayment.payment_id
             };
         },
         findIndexById(id) {

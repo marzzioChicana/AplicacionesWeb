@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": 0,
+      "id": 1,
       "username": "oizzram",
       "email": "oizzram1@gmail.com",
       "password": "Lamus1ca",
       "type": "normal"
     },
     {
-      "id": 1,
+      "id": 2,
       "username": "marx",
       "email": "abcd@gmail.com",
       "password": "12345",
@@ -64,7 +64,9 @@
       "country": "Peru",
       "expiry_date": "12/23",
       "security_code": 123,
-      "postal_code": 51
+      "postal_code": 51,
+      "event_id": 3,
+      "user_id": 1
     },
     {
       "id": 2,
@@ -77,7 +79,9 @@
       "country": "Peru",
       "expiry_date": "14/22",
       "security_code": 234,
-      "postal_code": 51
+      "postal_code": 51,
+      "event_id": 2,
+      "user_id": 2
     },
     {
       "id": 3,
@@ -90,7 +94,24 @@
       "country": "Peru",
       "expiry_date": "14/24",
       "security_code": 678,
-      "postal_code": 51
+      "postal_code": 51,
+      "event_id": 1,
+      "user_id": 2
+    },
+    {
+      "id": 4,
+      "card_number": "22222222222222222",
+      "type": "VISA",
+      "direction": "Av. Revolucion con Lenin",
+      "phone": 987234111,
+      "user_name": "Daira",
+      "user_lastname": "Romero",
+      "country": "Peru",
+      "expiry_date": "11/27",
+      "security_code": 155,
+      "postal_code": 51,
+      "user_id": 2,
+      "payment_id": 4
     }
   ]
 }

@@ -8,6 +8,7 @@ import LoginComponent from "@/components/login.component.vue";
 import RegisterComponent from "@/components/register.component.vue";
 import EventsComponent from "@/components/events.component.vue";
 import EventResumeComponent from "@/components/event-resume.vue";
+import PaymentComponent from "@/components/payment.component.vue";
 
 import "primevue/resources/themes/lara-light-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
@@ -30,7 +31,8 @@ const routes = [
     {path:'/login', component: LoginComponent},
     {path: '/register', component: RegisterComponent},
     {path: '/events', component: EventsComponent},
-    {path: '/events/:id', component: EventResumeComponent}
+    {path: '/events/:id', component: EventResumeComponent},
+    {path: '/payment/:id', component: PaymentComponent}
 ]
 
 const router= createRouter({

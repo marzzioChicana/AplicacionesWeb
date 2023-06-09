@@ -18,8 +18,9 @@
             Precio de entrada: s/. {{ event.price }}
         </div>
         <div class="button-entrada text-center">
-            <pv-button class="text-center" size="large"
-                       label="Comprar entradas" severity="success" outlined />
+            <router-link :to="`/payment/${event.id}`">
+                <pv-button class="text-center" size="large" label="Comprar entradas" severity="success" outlined />
+            </router-link>
         </div>
     </div>
 </template>
