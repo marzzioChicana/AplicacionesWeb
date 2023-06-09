@@ -5,7 +5,7 @@ export class EventsApiService{
         return http.get('events');
     }
     getById(id){
-        return http.get('events/'+id);
+        return http.get(`events/${id}`);
     }
     create(data){
         return http.post('events', data);

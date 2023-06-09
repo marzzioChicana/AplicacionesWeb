@@ -110,7 +110,7 @@ import UserToolbar from "@/components/user-toolbar.component.vue";
 import {PaymentsApiService} from "@/services/payments-api.service";
 
 export default {
-    name: "home.component",
+    name: "payment.component",
     components: {UserToolbar},
     data() {
         return {

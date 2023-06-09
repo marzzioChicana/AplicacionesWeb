@@ -1,40 +1,14 @@
 <template>
-    <div style="position: relative">
+    <div style="position: relative; margin-top:-10px;">
         <div style="position: static; border-bottom: 2px solid #79b791;">
             <UserToolbar></UserToolbar>
         </div>
     </div>
 
-    <div class="p-grid event-list">
+    <div class="p-grid event-list" style="margin-top: -5px;">
         <h1 class="recommendations-title">Recomendaciones</h1>
         <div v-for="event in events" :key="event.id">
             <event-card  class="event-card" :event="event" ></event-card>
-            <pv-dialog
-                v-model:visible="this.confirmDialog"
-                :style="{width:'450px'}"
-                header="Confirm"
-                :modal="true"
-                :draggable="false"
-            >
-                <div class="confirmation-content">
-                    <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
-                    <span v-if="event">
-                            Are you sure you want to delete <b>{{ event.name }}</b>?
-                        </span>
-                </div>
-                <template #footer>
-                    <pv-button
-                        :label="'No'.toUpperCase()"
-                        icon="pi pi-times"
-                        class="p-button-text"
-                    />
-                    <pv-button
-                        :label="'Yes'.toUpperCase()"
-                        icon="pi pi-check"
-                        class="p-button-text"
-                    />
-                </template>
-            </pv-dialog>
         </div>
     </div>
 </template>
@@ -45,7 +19,7 @@ import {FilterMatchMode} from "primevue/api";
 import EventCard from "@/components/event-card.component.vue";
 import UserToolbar from "@/components/user-toolbar.component.vue";
 export default {
-    name: "event-list",
+    name: "event.component",
     components: {EventCard, UserToolbar},
     data(){
         return {
@@ -66,18 +40,6 @@ export default {
     },
 
     methods:{
-        getStorableEvent(displayableEvent){
-            return {
-                id: displayableEvent.id,
-                name: displayableEvent.name,
-                description: displayableEvent.description,
-                time_start: displayableEvent.time_start,
-                time_end: displayableEvent.time_end,
-                date_start: displayableEvent.date_start,
-                date_end: displayableEvent.date_end,
-                price: displayableEvent.price,
-            };
-        },
         initFilters(){
             this.filters={
                 global: {value: null, matchMode: FilterMatchMode.CONTAINS},
@@ -113,11 +75,6 @@ export default {
 .event-card p {
     font-size: 16px;
     margin: 0;
-}
-
-.add-event-btn {
-    margin-top: 20px;
-    align-self: flex-end;
 }
 
 .recommendations-title {

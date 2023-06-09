@@ -15,18 +15,10 @@
             </p>
         </template>
         <template #footer="slotProps" >
-            <pv-button
-                icon="pi pi-pencil"
-                class="p-button-text p-button-rounded"
-            />
-            <pv-button
-                icon="pi pi-trash"
-                class="p-button-text p-button-rounded"
-            />
             <router-link :to="'/events/' + event.id">
                 <pv-button
-                    icon="pi pi-eye"
-                    class="p-button-text p-button-rounded"
+                    label="Ver página"
+                    class="custom-button text-raised"
                 />
             </router-link>
         </template>
@@ -35,13 +27,14 @@
 
 <script>
 export default{
-    name: "event-card",
+    name: "event-card.component",
     props:{
         event:null
     },
     data(){
         return {
             eventDialog: false,
+            deleteEventDialog: false,
         };
     },
     methods:{
@@ -56,10 +49,16 @@ export default{
     align-items: center;
     margin-top: 20px;
     width:100%;
+    background-color: #242423;
 }
 
 .card img {
     width: 300px;
     height: 200px;
+}
+
+.custom-button {
+    border: 1px solid white;
+    background-color: #242423;
 }
 </style>

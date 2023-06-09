@@ -16,14 +16,11 @@
             </div>
         </template>
     </pv-toolbar>
-
-
-
 </template>
 
 <script>
 export default {
-    name: "toolbar.component"
+    name: "user-toolbar.component"
 }
 </script>
 
