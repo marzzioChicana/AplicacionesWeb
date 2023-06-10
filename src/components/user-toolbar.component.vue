@@ -12,9 +12,11 @@
                     <span class="boton">Agenda</span>
                 </pv-button>
 
-                <pv-button class="mr-2" text>
-                    <span class="boton">Usuario</span>
-                </pv-button>
+                <router-link to="/profile">
+                    <pv-button class="mr-2" text>
+                        <span class="boton">Usuario</span>
+                    </pv-button>
+                </router-link>
 
                 <pv-button class="mr-2" @click="logout" text>
                     <span class="boton">Log out</span>

@@ -16,6 +16,7 @@ import PaymentComponent from "@/components/payment.component.vue";
 import UserEventsComponent from "@/components/normal-events.component.vue";
 import ManagerEventsComponent from "@/components/manager-events.component.vue";
 import CreateEventComponent from "@/components/create-event.vue";
+import ProfileComponent from "@/components/profile.component.vue";
 
 import "primevue/resources/themes/lara-light-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
@@ -42,7 +43,8 @@ const routes = [
     {path: '/payment/:id', component: PaymentComponent},
     {path: '/normal-events', component: UserEventsComponent},
     {path: '/manager-events', component: ManagerEventsComponent},
-    {path: '/create-event', component: CreateEventComponent}
+    {path: '/create-event', component: CreateEventComponent},
+    {path: '/profile', component: ProfileComponent}
 ]
 
 const router= createRouter({

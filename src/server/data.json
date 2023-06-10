@@ -2,14 +2,14 @@
   "users": [
     {
       "id": 1,
-      "username": "oizzram",
+      "username": "Oizzram",
       "email": "oizzram1@gmail.com",
       "password": "Lamus1ca",
       "type": "normal"
     },
     {
       "id": 2,
-      "username": "marx",
+      "username": "Marx",
       "email": "abcd@gmail.com",
       "password": "12345",
       "type": "manager"
