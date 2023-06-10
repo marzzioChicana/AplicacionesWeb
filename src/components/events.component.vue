@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import {EventsApiService} from "@/services/events-api.service";
-import {FilterMatchMode} from "primevue/api";
+import { EventsApiService } from "@/services/events-api.service";
+import { FilterMatchMode } from "primevue/api";
 import EventCard from "@/components/event-card.component.vue";
 import UserToolbar from "@/components/user-toolbar.component.vue";
 export default {
-    name: "event.component",
+    name: "events.component",
     components: {EventCard, UserToolbar},
     data(){
         return {
@@ -32,20 +32,27 @@ export default {
     },
     created(){
         this.eventsService = new EventsApiService();
-        this.eventsService.getAll().then((response) =>{
-            this.events= response.data;
-            console.log(this.events);
-        });
+        this.loadEvents(); // Cargar eventos al inicio
         this.initFilters();
     },
 
     methods:{
-        initFilters(){
-            this.filters={
-                global: {value: null, matchMode: FilterMatchMode.CONTAINS},
+        loadEvents() {
+            this.eventsService.getAll().then((response) => {
+                this.events = response.data;
+                console.log(this.events);
+            });
+        },
+        initFilters() {
+            this.filters = {
+                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
             };
+        },
+        // Método para manejar el evento de nuevo evento creado
+        handleEventCreated(event) {
+            this.events.push(event); // Agregar el nuevo evento a la lista
         }
-    },
+    }
 };
 </script>
 

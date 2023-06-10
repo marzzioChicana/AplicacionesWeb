@@ -1,7 +1,7 @@
 <template>
     <div class="grid_register">
         <div class="photo_card">
-            <img src="src/assets/Side-Image.png" alt="" width="400" height="700"/>
+            <img src="../assets/register/Side-Image.png" alt="" width="400" height="700"/>
         </div>
 
         <div class="form_card">
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import {UsersApiService} from "@/services/users-api.service";
+import { UsersApiService } from "@/services/users-api.service";
 import { useRouter } from 'vue-router';
 export default {
     name: "register.component",

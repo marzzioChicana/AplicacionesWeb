@@ -92,19 +92,23 @@
 
         <template #footer >
             <div class="button-save">
-                <pv-button
-                    :label="'Save'.toUpperCase()"
-                    icon="pi pi-check"
-                    @click="savePayment"
-                    outlined
-                />
+                <router-link :to="'/events/' + payment.event_id.toString()">
+                    <pv-button
+                        :label="'Save'.toUpperCase()"
+                        icon="pi pi-check"
+                        style="margin-top: -30px;"
+                        @click="savePayment"
+                        outlined
+                    />
+                </router-link>
             </div>
         </template>
     </pv-card>
 </template>
 
 <script>
-import {PaymentsApiService} from "@/services/payments-api.service";
+import { mapState } from 'vuex';
+import { PaymentsApiService } from "@/services/payments-api.service";
 import { useRoute } from "vue-router";
 import UserToolbar from "@/components/user-toolbar.component.vue";
 
@@ -124,8 +128,11 @@ export default {
         this.payment = {};
         this.submitted = false;
         let route = useRoute();
-        this.payment.payment_id = parseInt(route.params.id.toString());
-        this.payment.user_id = 2;
+        this.payment.event_id = parseInt(route.params.id.toString());
+        this.payment.user_id = this.sessionData.id;
+    },
+    computed: {
+        ...mapState(["sessionData"])
     },
 
     methods: {
@@ -146,7 +153,7 @@ export default {
                 security_code: displayablePayment.security_code,
                 postal_code: displayablePayment.postal_code,
                 user_id: displayablePayment.user_id,
-                payment_id: displayablePayment.payment_id
+                event_id: displayablePayment.event_id
             };
         },
         findIndexById(id) {

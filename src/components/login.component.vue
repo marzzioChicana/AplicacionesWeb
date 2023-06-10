@@ -30,8 +30,8 @@
 </template>
 
 <script>
-
-import {UsersApiService} from "@/services/users-api.service";
+import { mapMutations } from 'vuex';
+import { UsersApiService } from "@/services/users-api.service";
 import { useRouter } from 'vue-router';
 
 export default {
@@ -39,6 +39,7 @@ export default {
     data() {
         return {
             user: {},
+            user_temp: null,
             usersService: null,
             router: null
         };
@@ -49,6 +50,7 @@ export default {
     },
 
     methods: {
+        ...mapMutations(['setSessionData']),
         getStorableUser(displayableUser) {
             return {
                 email: displayableUser.email,
@@ -71,6 +73,11 @@ export default {
                 if (userExists) {
                     alert("Inicio de sesión exitoso");
 
+                    const userTemp= users.find(
+                        item => item.email === this.user.email && item.password === this.user.password
+                    );
+
+                    this.setSessionData(userTemp);
                     this.router.push('/events'); //agregar ruta
 
                 } else {

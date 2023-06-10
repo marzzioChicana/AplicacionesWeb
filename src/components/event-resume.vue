@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import {EventsApiService} from "@/services/events-api.service";
+import { EventsApiService } from "@/services/events-api.service";
 import { useRoute } from "vue-router";
 import UserToolbar from "@/components/user-toolbar.component.vue";
 
