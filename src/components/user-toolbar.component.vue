@@ -87,8 +87,4 @@ export default {
         margin-bottom: 10px;
     }
 }
-
-.space {
-
-}
 </style>
