@@ -13,6 +13,13 @@
       "email": "abcd@gmail.com",
       "password": "12345",
       "type": "manager"
+    },
+    {
+      "username": "marzx",
+      "email": "oizzram2@gmail.com",
+      "password": "123456789",
+      "type": "normal",
+      "id": 3
     }
   ],
   "events": [
